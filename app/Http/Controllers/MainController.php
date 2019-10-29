@@ -14,9 +14,9 @@ class MainController extends Controller
 	        $id = $data["entry"][0]["messaging"][0]["sender"]["id"] ?? $data;
 	        $message = new Message;
 	        $message->data = response()->json($data);
-	        $message->save();
+	        // $message->save();
 	        if ($id) {
-	        	$this->sendTextMessage($id, "Hello");
+	        	// $this->sendTextMessage($id, "Hello");
 	        }
 	     	
 	        
