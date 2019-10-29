@@ -7,7 +7,7 @@ use Closure;
 class VerifyMiddleware
 {
     /**
-     * Handle an incoming request.
+     * Handle an incoming request.  
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -17,7 +17,7 @@ class VerifyMiddleware
     public function handle($request, Closure $next)
     {
         if ($request->input("hub_mode") === "subscribe"
-            && $request->input("hub_verify_token") === "mytoken")) {
+            && $request->input("hub_verify_token") === "mytoken") {
             return response($request->input("hub_challenge"), 200);
         }
         return $next($request);
