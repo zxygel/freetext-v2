@@ -20,6 +20,7 @@ class VerifyMiddleware
             && $request->input("hub_verify_token") === "mytoken") {
             return response($request->input("hub_challenge"), 200);
         }
-        return $next($request);
+        // return $next($request);
+        echo "string";
     }
 }
