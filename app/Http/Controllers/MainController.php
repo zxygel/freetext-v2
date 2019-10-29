@@ -15,7 +15,7 @@ class MainController extends Controller
 	        $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
 	     	// $this->sendTextMessage($id, "Hello");
 	        $message = new Message;
-	        $message->data = reponse()->json($data);
+	        $message->data = response()->json($data);
 	        $message->save();
 	     	// Storage::put('file.txt', 'Your name');
 
