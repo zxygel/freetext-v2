@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Storage;
-
+use Message;
 class MainController extends Controller
 {
     public function receive(Request $request)
@@ -14,7 +14,10 @@ class MainController extends Controller
 	        //get the user’s id
 	        $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
 	     	// $this->sendTextMessage($id, "Hello");
-	     	Storage::put('file.txt', 'Your name');
+	        $message = new Message;
+	        $message->data = reponse()->json($data);
+	        $message->save();
+	     	// Storage::put('file.txt', 'Your name');
 
 	}
 	private function sendTextMessage($recipientId, $messageText)
