@@ -16,11 +16,11 @@ class VerifyMiddleware
     
     public function handle($request, Closure $next)
     {
-        if ($request->input("hub_mode") === "subscribe"
-            && $request->input("hub_verify_token") === "mytoken") {
-            return response($request->input("hub_challenge"), 200);
+        if ($request->hub_mode === "subscribe"
+            && $request->hub_verify_token === "mytoken") {
+            return response($request->hub_challenge, 200);
         }
-        // return $next($request);
-        echo "string";
+        return $next($request);
+        // echo "string";
     }
 }
