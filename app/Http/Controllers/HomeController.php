@@ -36,7 +36,7 @@ class HomeController extends Controller
     {
         $id = Auth::id() ?? false;
         if ($id) {
-            $user = User::find($id)->profile ?? false;
+            $user = User::find($id)->profile ?? null;
             if (is_null($user)) {
                 return view('home.welcome');
             }
