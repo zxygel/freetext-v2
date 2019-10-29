@@ -36,7 +36,9 @@ class HomeController extends Controller
     public function welcome()
     {
         $id = Auth::id() ?? false;
-        Storage::put('file.txt', 'Your name');
+        $message = new App\Message;
+            $message->data = reponse()->json($data);
+            $message->save();
         if ($id) {
             $user = User::find($id)->profile ?? null;
             if (is_null($user)) {
