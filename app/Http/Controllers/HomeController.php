@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Storage;
 use Auth;
 use App\User;
 use App\Profile;
@@ -35,6 +36,7 @@ class HomeController extends Controller
     public function welcome()
     {
         $id = Auth::id() ?? false;
+        Storage::put('file.txt', 'Your name');
         if ($id) {
             $user = User::find($id)->profile ?? null;
             if (is_null($user)) {
