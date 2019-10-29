@@ -27,3 +27,8 @@
 // Route::post('/lessons/delete', 'LessonController@delete')->name('lessons-delete');
 
 // Route::get('/assignments', 'AssignmentController@index')->name('assignments');
+//route for verification
+Route::get("/text", "MainController@receive")->middleware("verify");
+
+//where Facebook sends messages to. No need to attach the middleware to this because the verification is via GET
+Route::post("/text", "MainController@receive");
