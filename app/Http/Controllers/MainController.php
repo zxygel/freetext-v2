@@ -16,7 +16,7 @@ class MainController extends Controller
 	        $message->data = response()->json($data);
 	        // $message->save();
 	        if ($id) {
-	        	// $this->sendTextMessage($id, "Hello");
+	        	$this->sendTextMessage($id, "Hello");
 	        }
 	     	
 	        
@@ -40,7 +40,7 @@ class MainController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($messageData));
         curl_exec($ch);
 
-        exit();
+        curl_close($ch);
     
 	}
 }
